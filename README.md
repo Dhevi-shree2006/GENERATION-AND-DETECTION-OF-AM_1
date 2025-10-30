@@ -83,13 +83,58 @@ Note: Keep all the switch faults in off position
 <img width="600" height="800" alt="image" src="https://github.com/user-attachments/assets/7bc77926-9c2a-42c6-994b-6c67433b11d2" />
 
 ## PROGRAM:
+```
+Ac = 12.2;
+Am = 6.1;
+Fc = 5630;
+Fm = 563;
+Fs = 56300;
+t = 0:1/Fs:2/Fm;
+e1 = (Ac*sin(2*3.14*Fm*t));
+subplot(4,1,1);
+plot(t,e1);
+xgrid;
+title('Message Signal');
+xlabel('Time');
+ylabel('Amplitude');
+
+e2 = (Ac*sin(2*3.14*Fc*t));
+subplot(4,1,2);
+plot(t,e2);
+xgrid;
+title('Carrier Signal');
+xlabel('Time');
+ylabel('Amplitude');
+
+e3 = (Ac + (Am*sin(2*3.14*Fm*t))).*sin(2*3.14*Fc*t);
+subplot(4,1,3);
+plot(t,e3);
+xgrid;
+title('AM Modulated Signal');
+xlabel('Time');
+ylabel('Amplitude');
+
+demodulated_signal = abs(hilbert(e3)) - Ac;
+subplot(4,1,4);
+plot(t,demodulated_signal);
+xgrid;
+title('Demodulated Signal');
+xlabel('Time');
+ylabel('Amplitude');
+```
  
 ## TABULATION:
+![WhatsApp Image 2025-10-30 at 22 06 37_5206b9f2](https://github.com/user-attachments/assets/812b8499-3f36-4ccf-a0b5-8b760cba6f32)
+
 
 ## CALCULATION:
+![WhatsApp Image 2025-10-30 at 22 11 08_999261bf](https://github.com/user-attachments/assets/4b98a5f7-b802-4902-9631-696f7f93f5a9)
+
 
 
 
 ## OUTPUT:
+<img width="757" height="719" alt="image" src="https://github.com/user-attachments/assets/27e730a8-cc64-40e9-925b-7ba5fae066b8" />
+
 
 ## RESULT:
